@@ -18,8 +18,22 @@ class ToDoApp extends React.Component {
         this.visibilityFilters = ["ALL_TODOS", "TODOS_LEFT", "COMPLETED_TODOS"];
         this.state = {
             todos: this.props.dataInterface.getAllTodos(),
-            visibilityFilters: "ALL_TODOS"
+            visibilityFilter: "ALL_TODOS"
         };
+    }
+
+    visibleTodos = () => {
+        switch(this.state.visibilityFilter) {
+            case "ALL_TODOS":
+                return this.state.todos;
+            case "TODOS_LEFT":
+                return this.state.todos.filter( todo => todo.isDone === false );
+            case "COMPLETED_TODOS":
+                return this.state.todos.filter( todo => todo.isDone === true );
+            default:
+                return this.state.todos;
+        }
+            
     }
 
     render() {
