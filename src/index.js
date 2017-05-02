@@ -4,7 +4,24 @@ import TodoDataInterface from "../lib/TodoDataInterface.js";
 import SingleTodo from "./SingleTodo";
 
 
+const todoDataInterface = new TodoDataInterface();
+console.log(todoDataInterface);
+
+const singleTodo = new SingleTodo();
+console.log(singleTodo);
+
+
 class ToDoApp extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.visibilityFilters = ["ALL_TODOS", "TODOS_LEFT", "COMPLETED_TODOS"];
+        this.state = {
+            todos: this.props.dataInterface.getAllTodos(),
+            visibilityFilters: "ALL_TODOS"
+        };
+    }
+
     render() {
         return (
             <div>
@@ -14,13 +31,8 @@ class ToDoApp extends React.Component {
     }
 }
 
-const todoDataInterface = new TodoDataInterface();
-console.log(todoDataInterface);
-
-const singleTodo = new SingleTodo();
-console.log(singleTodo);
 
 ReactDOM.render(
-    <ToDoApp />,
+    <ToDoApp dataInterface={todoDataInterface}/>,
     document.getElementById("app")
     )
