@@ -1,15 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import TodoDataInterface from "../lib/TodoDataInterface.js";
+import SingleTodo from "./SingleTodo";
 
-class ToDo extends React.Component {
+
+class ToDoApp extends React.Component {
     render() {
         return (
-                <h1>ToDo App </h1>
+            <div>
+                <h1>ToDo App</h1>
+            </div>
             );
     }
 }
 
+const todoDataInterface = new TodoDataInterface();
+console.log(todoDataInterface);
+
+const singleTodo = new SingleTodo();
+console.log(singleTodo);
+
 ReactDOM.render(
-    <ToDo />,
+    <ToDoApp />,
     document.getElementById("app")
     )
