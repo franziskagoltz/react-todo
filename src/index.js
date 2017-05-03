@@ -22,6 +22,13 @@ class ToDoApp extends React.Component {
             visibilityFilter: "ALL_TODOS"
         };
     }
+    addTodo = () => {
+        if (this._todoInputField.value) {
+            this.props.dataInterface.addTodo(this._todoInputField.value);
+            this.setState({todos: this.props.dataInterface.getAllTodos()});
+            this._todoInputField.value = '';
+        }
+    }
 
     visibleTodos = () => {
         switch(this.state.visibilityFilter) {
@@ -42,9 +49,8 @@ class ToDoApp extends React.Component {
             <div>
                 <h1>ToDo App Built with React</h1>
                 <input type="text" placeholder="Add a New ToDo" 
-                    ref={(c => this._todoInputField = c)}
-                />
-                
+                    ref={(c => this._todoInputField = c)}/>
+                <button onCLick={this.addTodo}> Add New Todo </button>
             </div>
             );
     }
