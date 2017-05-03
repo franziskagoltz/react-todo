@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TodoDataInterface from "../lib/TodoDataInterface.js";
 import SingleTodo from "./SingleTodo";
+import VisibleTodoList from "./VisibleTodoList";
 
 
 const todoDataInterface = new TodoDataInterface();
@@ -39,7 +40,11 @@ class ToDoApp extends React.Component {
     render() {
         return (
             <div>
-                <h1>ToDo App</h1>
+                <h1>ToDo App Built with React</h1>
+                <input type="text" placeholder="Add a New ToDo" 
+                    ref={(c => this._todoInputField = c)}
+                />
+                
             </div>
             );
     }
