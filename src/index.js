@@ -30,6 +30,12 @@ class ToDoApp extends React.Component {
         }
     }
 
+    archiveToggleTodo = (e) => {
+        // e.target.dataset.id = grabbing the id from the DOM elements
+        this.props.dataInterface.archiveToggleTodo(e.target.dataset.id);
+        this.setState({todos: this.props.dataInterface.getAllTodos()})
+    }
+
     visibleTodos = () => {
         switch(this.state.visibilityFilter) {
             case "ALL_TODOS":
@@ -45,12 +51,15 @@ class ToDoApp extends React.Component {
     }
 
     render() {
+
+        const visibleTodos = this.visibleTodos();
+
         return (
             <div>
                 <h1>ToDo App Built with React</h1>
                 <input type="text" placeholder="Add a New ToDo" 
-                    ref={(c => this._todoInputField = c)}/>
-                <button onCLick={this.addTodo}> Add New Todo </button>
+                    ref={(c => this._todoInputField = c)} id="test"/>
+                <button onClick={this.addTodo}> Add New Todo </button>                
             </div>
             );
     }
