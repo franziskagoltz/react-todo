@@ -8,10 +8,12 @@ class SingleTodo extends React.Component {
                 <li>
                     <input
                         checked={this.props.isDone}
-                        onChange={this.props.archiveToggleTodo(this.props.id)}
+                        onChange={this.props.archiveToggleTodo}
                         type="checkbox" />
                 <label>{this.props.text}</label>
-                <button onClick={this.props.removeTodo(this.props.id)}> Delete </button>
+                <button 
+                    onClick={this.props.removeTodo}> Delete 
+                </button>
                 </li>
             )
     }
