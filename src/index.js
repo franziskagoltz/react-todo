@@ -36,6 +36,11 @@ class ToDoApp extends React.Component {
         this.setState({todos: this.props.dataInterface.getAllTodos()})
     }
 
+    removeTodo = (e) => {
+        this.props.dataInterface.removeTodo(e.target.dataset.id);
+        this.setState({todos: this.props.dataInterface.getAllTodos()})
+    }
+
     visibleTodos = () => {
         switch(this.state.visibilityFilter) {
             case "ALL_TODOS":
@@ -59,7 +64,7 @@ class ToDoApp extends React.Component {
                 <h1>ToDo App Built with React</h1>
                 <input type="text" placeholder="Add a New ToDo" 
                     ref={(c => this._todoInputField = c)} id="test"/>
-                <button onClick={this.addTodo}> Add New Todo </button>                
+                <button onClick={this.addTodo}> Add New Todo </button>
             </div>
             );
     }
