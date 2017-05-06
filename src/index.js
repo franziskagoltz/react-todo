@@ -41,6 +41,10 @@ class ToDoApp extends React.Component {
         this.setState({todos: this.props.dataInterface.getAllTodos()})
     }
 
+    changeVisibilityFilter = (e) => {
+        this.setState({visibilityFilter: e.target.dataset.id})
+    }
+
     visibleTodos = () => {
         switch(this.state.visibilityFilter) {
             case "ALL_TODOS":
