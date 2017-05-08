@@ -74,6 +74,20 @@ class ToDoApp extends React.Component {
                     visibilityFilter = {this.state.visibilityFilter}
                     archiveToggleTodo={this.archiveToggleTodo}
                     removeTodo={this.removeTodo}/>
+                <div>
+                    SHOW:
+                    {
+                        this.visibilityFilters.map(
+                            visibilityFilter =>
+                                <button 
+                                    key={visibilityFilter} 
+                                    onClick={this.changeVisibilityFilter} 
+                                    data-id={visibilityFilter}>
+                                        {visibilityFilter.replace("_", " ")}
+                                </button>
+                        )
+                    }
+                </div>
             </div>
             );
     }
