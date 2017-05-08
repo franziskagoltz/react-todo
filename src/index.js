@@ -69,6 +69,11 @@ class ToDoApp extends React.Component {
                 <input type="text" placeholder="Add a New ToDo" 
                     ref={(c => this._todoInputField = c)} id="test"/>
                 <button onClick={this.addTodo}> Add New Todo </button>
+                <VisibleTodoList
+                    visibleTodos={visibleTodos}
+                    visibilityFilter = {this.state.visibilityFilter}
+                    archiveToggleTodo={this.archiveToggleTodo}
+                    removeTodo={this.removeTodo}/>
             </div>
             );
     }
